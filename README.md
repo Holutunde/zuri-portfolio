@@ -7,7 +7,7 @@ A server using the HTTP module with Node to render file system
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
   </a>
   <a href="https://twitter.com/reechychukz" target="_blank">
-    <img alt="Twitter: Holutunde" src="https://img.shields.io/twitter/follow/reechychukz.svg?style=social" />
+    <img alt="Twitter: Holutunde" src="https://img.shields.io/twitter/follow/holutunde.svg?style=social" />
   </a>
 </p>
 
