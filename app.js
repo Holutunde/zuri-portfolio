@@ -1,6 +1,10 @@
-const http = require('http') // Import Node.js core module
-const fs = require('fs')
+const http = require('http')
+const { readFileSync } = require('fs')
 const port = 5001
+
+const home = readFileSync('./pages/index.html')
+const about = readFileSync('./pages/about.html')
+const contact = readFileSync('./pages/contact.html')
 
 const server = http.createServer(function (req, res) {
   const url = req.url
@@ -10,44 +14,24 @@ const server = http.createServer(function (req, res) {
     res.writeHead(200, {
       'Content-Type': 'text/html',
     })
-    fs.readFile('./pages/index.html', null, function (error, data) {
-      if (error) {
-        res.writeHead(404)
-        res.write('Whoops! File not found!')
-      } else {
-        res.write(data)
-      }
-      res.end()
-    })
+    res.write(home)
+    res.end()
   } else if (url == '/home') {
     res.writeHead(302, { Location: '/' })
+    res.write(home)
     res.end()
   } else if (url == '/about') {
     res.writeHead(200, {
       'Content-Type': 'text/html',
     })
-    fs.readFile('./pages/about.html', null, function (error, data) {
-      if (error) {
-        res.writeHead(404)
-        res.write('Whoops! File not found!')
-      } else {
-        res.write(data)
-      }
-      res.end()
-    })
+    res.write(about)
+    res.end()
   } else if (url == '/contact') {
     res.writeHead(200, {
       'Content-Type': 'text/html',
     })
-    fs.readFile('./pages/contact.html', null, function (error, data) {
-      if (error) {
-        res.writeHead(404)
-        res.write('Whoops! File not found!')
-      } else {
-        res.write(data)
-      }
-      res.end()
-    })
+    res.write(contact)
+    res.end()
   }
   // 404
   else {
